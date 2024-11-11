@@ -66,7 +66,7 @@ def main():
         pygame.display.flip()
 
         # tick the clock!
-        clock.tick(40 - score)
+        clock.tick(20 + score)
 
 
 main()
