@@ -2,6 +2,7 @@ import pygame
 
 from classes.fruit import Fruit, FruitType
 from classes.player import Player
+from classes.bomb import Bomb
 
 pygame.init()
 
@@ -18,14 +19,19 @@ surf.fill((255, 111, 33))
 all_sprites = pygame.sprite.Group()
 
 apple = Fruit(FruitType.APPLE)
+apple2 = Fruit(FruitType.APPLE)
 strawberry = Fruit(FruitType.STRAWBERRY)
 strawberry2 = Fruit(FruitType.STRAWBERRY)
 player = Player()
+bomb = Bomb()
 
-all_sprites.add(player)
+
 all_sprites.add(apple)
+all_sprites.add(apple2)
 all_sprites.add(strawberry)
 all_sprites.add(strawberry2)
+all_sprites.add(bomb)
+all_sprites.add(player)
 
 # Create the game loop
 running = True
