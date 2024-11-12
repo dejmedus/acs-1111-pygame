@@ -1,20 +1,24 @@
 import pygame
 
-from classes.fruit import Fruit, FruitType
 from classes.player import Player
-from classes.bomb import Bomb
+from classes.sprite import Sprite
+
+
+class FruitType:
+    APPLE = 'apple'
+    STRAWBERRY = 'strawberry'
 
 
 def create_objects():
     all_sprites = pygame.sprite.Group()
     fruit_sprites = pygame.sprite.Group()
 
-    apple = Fruit(FruitType.APPLE)
-    apple2 = Fruit(FruitType.APPLE)
-    strawberry = Fruit(FruitType.STRAWBERRY)
-    strawberry2 = Fruit(FruitType.STRAWBERRY)
+    apple = Sprite(FruitType.APPLE)
+    apple2 = Sprite(FruitType.APPLE)
+    strawberry = Sprite(FruitType.STRAWBERRY)
+    strawberry2 = Sprite(FruitType.STRAWBERRY)
     player = Player()
-    bomb = Bomb()
+    bomb = Sprite("bomb")
 
     all_sprites.add(apple)
     all_sprites.add(apple2)

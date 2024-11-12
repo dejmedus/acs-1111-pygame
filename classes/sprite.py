@@ -3,14 +3,9 @@ from constants import LANES
 from classes.game_object import GameObject
 
 
-class FruitType:
-    APPLE = 'apple'
-    STRAWBERRY = 'strawberry'
-
-
-class Fruit(GameObject):
-    def __init__(self, fruit: FruitType):
-        super(Fruit, self).__init__(0, 0, f'assets/{fruit}.png')
+class Sprite(GameObject):
+    def __init__(self, type):
+        super().__init__(0, 0, f'assets/{type}.png')
         self.coord_values = self.generate_coords()
         self.reset()  # call reset here!
 
