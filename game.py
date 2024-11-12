@@ -53,7 +53,7 @@ def main():
 
         text_surface = font.render(
             f'score {score}', True, (0, 0, 0))
-        screen.blit(text_surface, dest=(0, 0))
+        screen.blit(text_surface, dest=(10, 10))
 
         fruit = pygame.sprite.spritecollideany(player, fruit_sprites)
         if fruit:
