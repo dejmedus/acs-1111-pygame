@@ -60,24 +60,27 @@ def main():
             score += 1
             fruit.reset()
 
-            if score == 20:
-                print("You win!")
-                reset_game(clock)
+            if score == 100:
+                reset_game(screen, True)
 
         if pygame.sprite.collide_rect(player, bomb):
-            print("You hit a bomb!")
-            reset_game(clock)
+            reset_game(screen,  False)
 
         # Update the window
         pygame.display.flip()
 
         # tick the clock!
-        clock.tick(20 + score)
+        clock.tick(25 + score)
 
 
-def reset_game(clock):
-    clock.tick(0)
-    time.sleep(1)
+def reset_game(screen, has_won):
+    font = pygame.font.Font(None, 50)
+    text_surface = font.render(
+        f'Game Over. {"You won!" if has_won else "You lost"}', True, (0, 0, 0), (100, 100, 100))
+    screen.blit(text_surface, dest=(75, 200))
+    pygame.display.flip()
+
+    time.sleep(2)
     main()
 
 
