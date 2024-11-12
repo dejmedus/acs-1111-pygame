@@ -6,7 +6,6 @@ from classes.bomb import Bomb
 
 
 def create_objects():
-
     all_sprites = pygame.sprite.Group()
     fruit_sprites = pygame.sprite.Group()
 
@@ -18,14 +17,14 @@ def create_objects():
     bomb = Bomb()
 
     all_sprites.add(apple)
-    # all_sprites.add(apple2)
+    all_sprites.add(apple2)
     all_sprites.add(strawberry)
     all_sprites.add(strawberry2)
     all_sprites.add(bomb)
     all_sprites.add(player)
 
     fruit_sprites.add(apple)
-    # fruit_sprites.add(apple2)
+    fruit_sprites.add(apple2)
     fruit_sprites.add(strawberry)
     fruit_sprites.add(strawberry2)
 
