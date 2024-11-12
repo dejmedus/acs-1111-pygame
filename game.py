@@ -12,6 +12,7 @@ def main():
 
     # Configure the screen
     screen = pygame.display.set_mode([500, 500])
+    font = pygame.font.Font(pygame.font.get_default_font(), 18)
 
     # Create a new instance of Surface
     surf = pygame.Surface((150, 150))
@@ -50,23 +51,34 @@ def main():
             entity.move()
             entity.render(screen)
 
+        text_surface = font.render(
+            f'score {score}', True, (0, 0, 0))
+        screen.blit(text_surface, dest=(0, 0))
+
         fruit = pygame.sprite.spritecollideany(player, fruit_sprites)
         if fruit:
             score += 1
-            print("score", score)
             fruit.reset()
+
+            if score == 20:
+                print("You win!")
+                reset_game(clock)
 
         if pygame.sprite.collide_rect(player, bomb):
             print("You hit a bomb!")
-            clock.tick(0)
-            time.sleep(2.5)
-            main()
+            reset_game(clock)
 
         # Update the window
         pygame.display.flip()
 
         # tick the clock!
         clock.tick(20 + score)
+
+
+def reset_game(clock):
+    clock.tick(0)
+    time.sleep(1)
+    main()
 
 
 main()
